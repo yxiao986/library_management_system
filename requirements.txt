@@ -1,0 +1,4 @@
+Faker==37.5.3
+setuptools==78.1.1
+tzdata==2025.2
+wheel==0.45.1
