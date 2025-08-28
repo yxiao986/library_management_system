@@ -39,7 +39,7 @@ python -m LibrarySystem.main avl
 
 运行界面：
 
-![UI screenshot](../images/UI.png)
+![UI screenshot](images/UI.png)
 
 2. 性能测试
 3. 
@@ -58,4 +58,4 @@ python generate_data.py 50000
 
 测试结果示例：
 
-![test result screenshot](../images/test.png)
+![test result screenshot](images/test.png)
