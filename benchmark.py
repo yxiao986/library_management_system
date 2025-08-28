@@ -4,7 +4,7 @@ from pathlib import Path
 import pickle
 import time
 from LibrarySystem.data_structures.btree import BTree
-from LibrarySystem.data_structures.bst import OrdinaryTree
+from LibrarySystem.data_structures.ordinary_tree import OrdinaryTree
 from LibrarySystem.data_structures.avl_tree import BalancedTree
 
 def load_books(filename):
