@@ -9,6 +9,7 @@ class TreeNode:
     def __init__(self, data):
         self.data = data
         self.children = []
+        self.deleted = False  # 标记节点是否被逻辑删除
 
     def __str__(self):
         # 方便打印Book对象的标题
@@ -67,7 +68,7 @@ class OrdinaryTree:
         while queue:
             current_node = queue.popleft()
             # 跳过空节点
-            if current_node.data is not None and current_node.data == book_to_find:
+            if current_node.deleted is not True and current_node.data == book_to_find:
                 return current_node.data
             
             for child in current_node.children:
@@ -89,9 +90,9 @@ class OrdinaryTree:
 
             # 检查当前节点的数据是否是我们想删除的
             # 需要处理当前节点数据可能已经是None的情况
-            if current_node.data is not None and current_node.data == book_to_delete:
+            if current_node.deleted is not True and current_node.data == book_to_delete:
                 # 找到了！将数据置为 None，完成逻辑删除
-                current_node.data = None
+                current_node.deleted = True
                 return True
             
             # 将子节点加入队列继续搜索
@@ -111,7 +112,7 @@ class OrdinaryTree:
         queue = deque([self.root])
         while queue:
             current_node = queue.popleft()
-            if current_node.data is not None and current_node.data == old_book:
+            if current_node.deleted is not True and current_node.data == old_book:
                 current_node.data = new_book
                 return True
             for child in current_node.children:
@@ -130,7 +131,7 @@ class OrdinaryTree:
         while queue:
             current_node = queue.popleft()
             # 只收集有效数据
-            if current_node.data is not None:
+            if current_node.deleted is not True:
                 books.append(current_node.data)
             for child in current_node.children:
                 queue.append(child)
